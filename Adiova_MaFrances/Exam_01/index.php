@@ -16,6 +16,8 @@ if(isset($_POST['submit'])){ //check if the button is clicked
 
     if (strtolower($word) == strtolower($reverse)){ //converts the word to lower case and compare if the reversed and the original word is the same
         echo "$word is a Palindrome";
+    } else {
+        echo "$word is not a Palindrome";
     }
 }
 
