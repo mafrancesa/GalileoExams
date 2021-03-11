@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Javascript Test 1</h2>
+
+<p>Original: TheQuickBrownFoxJumpsOverTheLazyDog.</p>
+
+<p id="ans"> </p>
+
+<script>
+var text = "TheQuickBrownFoxJumpsOverTheLazyDog.";
+
+text = text.replace(/([a-z])([A-Z])/g, "$1 $2");
+text = text.toLowerCase();
+text = text.charAt(0).toUpperCase() + text.slice(1);
+
+document.getElementById("ans").innerHTML = "Converted: " + text;
+"The value of z is: " + z;
+</script>
+
+</body>
+</html>

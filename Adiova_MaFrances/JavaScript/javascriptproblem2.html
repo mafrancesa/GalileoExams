@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="app">
+   <h2>Javascript Test 2</h2>
+  <h1>Contact Form</h1>
+  <form>
+      <label for="fname"> First Name : </label>
+      <input type="text" id="fname"> <br>
+      <label for="lname"> Last Name : </label>
+      <input type="text" id="lname"> <br>
+       <label for="bday"> Birthday: </label>
+      <input type="text" id="bday"> <br>
+      <p> Gender </p>
+      <label for="male"> Male </label>
+      <input type="radio" id="male" name="gender" > <br>
+      <label for="female"> Female </label>
+      <input type="radio" id="female" name="gender"> <br>
+      <p> Known Languages </p>
+      <label for="english"> English </label>
+      <input type="checkbox" id="English" name="language" value="English"> <br>
+      <label for="japanese"> Japanese </label>
+      <input type="checkbox" id="Japanese" name="language" value="Japanese"> <br>
+      <label for="japanese"> Chinese </label>
+      <input type="checkbox" id="Chinese" name="language" value="Chinese"> <br>
+  </form>
+</div>
+
+<script>
+
+var employees = {
+   "success": true,
+   "employees": [
+      {
+         "id": "1",
+         "firstName": "John",
+         "lastName": "Doe",
+         "birthday": "1990-05-07",
+         "gender": {
+            "male": true,
+            "female": false
+         },
+         "knownLanguage": [
+            "English",
+            "Japanese",
+            "Chinese"
+         ]
+      },
+      {
+         "id": "2",
+         "firstName": "Lina",
+         "lastName": "Art",
+         "birthday": "1994-08-05",
+         "gender": {
+            "male": false,
+            "female": true
+         },
+         "knownLanguage": [
+            "English",
+            "Japanese"
+         ]
+      }
+   ]
+}
+    
+var sortedEmployee = employees.employees.sort(SortLastName("lastName")); 
+var selectedEmployee = sortedEmployee[0];
+var languages = sortedEmployee[0].knownLanguage;
+
+document.getElementById("fname").value = selectedEmployee.firstName;
+document.getElementById("lname").value = selectedEmployee.lastName;
+document.getElementById("bday").value = selectedEmployee.birthday;
+document.getElementById("male").checked = selectedEmployee.gender.male;
+document.getElementById("female").checked = selectedEmployee.gender.female;
+
+for (var x = 0; x != languages.length ; x ++) {
+document.getElementById(languages[x]).checked = true;
+}
+
+function SortLastName(lname) {    
+    return function(a, b) {    
+        if (a[lname] > b[lname]) {    
+            return 1;    
+        } else if (a[lname] < b[lname]) {    
+            return -1;    
+        }    
+        return 0;    
+    }    
+}
+
+
+console.log(languages)
+
+
+</script>
+
+</body>
+</html>
